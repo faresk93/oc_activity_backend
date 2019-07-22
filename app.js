@@ -106,11 +106,11 @@ app.put(route + '/:id', async (req, res, next) => {
 
 
 // Delete Recipe
-app.put(route + '/:id', async (req, res, next) => {
+app.delete(route + '/:id', async (req, res, next) => {
         const id = req.params.id;
         try {
             await Recipe.deleteOne({_id: id});
-            res.status(200).json({
+            res.status(204).json({
                 message: `Recipe with id: "${id}" deleted!`
             });
             console.log(`Recipe with id: "${id}" deleted!`)
